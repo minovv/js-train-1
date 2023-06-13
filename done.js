@@ -25,7 +25,8 @@ function calculateSum(n) {
 	let sum = 0;
 	for (let i = 1; i <= n; i++) {
 		sum += i;
-	} return sum;
+	}
+	return sum;
 }
 
 console.log("Завдання 2 ====================================");
@@ -41,6 +42,7 @@ function isPrimeNumber(num) {
 	// Перевіряємо, чи num ділиться націло на поточне значення i
 	// Якщо так, то num не є простим, тому повертаємо false
 	// Якщо під час циклу не знайдено дільників, то num є простим, тому повертаємо true
+
 	if (num <= 1) {
 		return false;
 	} else {
@@ -48,7 +50,8 @@ function isPrimeNumber(num) {
 			if (num % i === 0) {
 				return false;
 			}
-		} return true;
+		}
+		return true;
 	}
 }
 
@@ -64,7 +67,7 @@ function isPositiveNumber(num) {
 	// В іншому випадку, якщо num менше або дорівнює 0, то num не є позитивним, тому повертаємо false
 	if (num > 0) {
 		return true;
-	} else if (num <= 0) {
+	} else {
 		return false;
 	}
 }
@@ -97,7 +100,7 @@ function checkDataType(value) {
 	// Отримуємо тип значення value за допомогою оператора typeof
 	// Виводимо у консоль повідомлення, яке містить значення value та його тип
 	// Повертаємо тип значення value
-	console.log(`Значення "${value}" має тип "${typeof value}".`);
+	console.log(`Значення "${value}" має тип "${typeof value}"`);
 	return typeof value;
 
 }
@@ -141,7 +144,8 @@ function getUserStatus(age) {
 		return "Неповнолітній";
 	} else if (age >= 18 && age < 65) {
 		return "Дорослий";
-	} else {
+	}
+	else {
 		return "Пенсіонер";
 	}
 }
@@ -167,28 +171,22 @@ function getDayOfWeek(dayNumber) {
 	// Якщо dayNumber = 7, то day = "Неділя"
 	// Якщо значення dayNumber не співпадає з жодним з випадків, то day = "Невірний номер дня"
 	// Повертаємо назву дня тижня, яку зберегли у змінній day
+
 	switch (dayNumber) {
 		case 1:
 			return "Понеділок";
-
 		case 2:
 			return "Вівторок";
-
 		case 3:
 			return "Середа";
-
 		case 4:
 			return "Четвер";
-
 		case 5:
 			return "П'ятниця";
-
 		case 6:
 			return "Субота";
-
 		case 7:
 			return "Неділя";
-
 		default:
 			return "Невірний номер дня - задайте номер від 1 до 7!";
 	}
@@ -212,10 +210,14 @@ function getVariableType(variable) {
 	// В іншому випадку (якщо тип змінної не входить у попередні категорії), то повідомлення = "Це інший тип"
 	// Повертаємо встановлене повідомлення як результат функції
 	console.log(typeof variable);
-	return typeof variable === "number" ? "This is a number"
-		: typeof variable === "string" ? "This is a string"
-			: typeof variable === "boolean" ? "This is a boolean"
-				: "This is other type"
+	return typeof variable === "number"
+		? "Це число"
+		: typeof variable === "string"
+			? "Це рядок"
+			: typeof variable === "boolean"
+				? "Це булеве значення"
+				: "Це інший тип";
+
 }
 
 // Приклади виклику функції
@@ -231,6 +233,9 @@ console.log("getVariableType([1, 2, 3])", getVariableType([1, 2, 3])); // Вив
 function factorial(n) {
 	// Якщо n дорівнює 0 або 1, повертаємо 1, оскільки факторіал 0 і 1 завжди дорівнює 1.
 	// Якщо n більше за 1, ми множимо n на результат виклику тієї самої функції з n-1.
+	// Виклик функції з самою собою називається рекурсією.
+	// Функція factorial буде викликатися доти, доки n не дорівнюватиме 1.
+	// Приклад рекурсивної функції: https://www.w3schools.com/js/js_function_definition.asp
 	if (n === 0 || n === 1) {
 		return 1;
 	} else {
@@ -279,7 +284,7 @@ function divide(x) {
 }
 
 // Створюємо змінну getDivider якій присвоємо результат виконання функції divide з аргументом 2
-let getDivider = divide(2)
+let getDivider = divide(2);
 
 console.log("Завдання 14 ====================================");
 // Розкоментуйте після виконаня завдання
@@ -313,7 +318,6 @@ function memoizedArea() {
 			return result;
 		}
 	}
-
 }
 
 //Створюємо змінну squareArea якій присвоємо результат виконання функції memoizedArea
@@ -356,6 +360,7 @@ function compose(func1, func2) {
 
 // Створюємо змінну createCompose якій присвоємо результат виконання функції compose з аргументами increment та double
 let createCompose = compose(increment, double);
+
 console.log("Завдання 17 ====================================");
 // Розкоментуйте після виконаня завдання
 console.log("createCompose(5)", createCompose(5)); // Виведе: 12 (5+1=6, 6*2=12)
